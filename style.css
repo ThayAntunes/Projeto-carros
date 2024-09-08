@@ -54,6 +54,15 @@ section {
 .item {
     position: absolute;
     inset: 0;
+    transform: translateX(100vw);
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.item.active {
+    transform: translateX(0);
+    transition: 0.5s;
+    opacity: 1;
 }
 
 .carimg {
@@ -65,6 +74,12 @@ section {
 
 .carimg img {
     width: 100%;
+    transform: rotate(-20deg);
+    transition: 0.5s;
+    transition-delay: 0.3s;
+}
+
+.item.active .carimg img {
     transform: rotate(-20deg);
 }
 
@@ -110,6 +125,33 @@ section {
     font-size: 1.3em;
 }
 
+.content .information, .content h2, .content .description, .content .info {
+    transform: translateX(200px);
+    transition: 0.7s;
+    transition-delay: 0.3s;
+    opacity: 0;
+}
+
+.item.active .content .information,
+.item.active .content h2,
+.item.active .content .description,
+.item.active .content .info {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.content h2 {
+    transition-delay: 0.5s;
+}
+
+.content .description {
+    transition-delay: 0.7s;
+}
+
+.content .info {
+    transition-delay: 0.9s;
+}
+
 .list::before {
     content: '';
     position: absolute;
@@ -131,16 +173,6 @@ section {
 
 .arrow button:nth-child(1) img {
     transform: scale(-1);
-}
-
-.arrow {
-    width: 70vw;
-    position: absolute;
-    top: 50%;
-    left: 49%;
-    display: flex;
-    justify-content: space-between;
-    transform: translate(-50%, -25%);
 }
 
 .arrow button {
